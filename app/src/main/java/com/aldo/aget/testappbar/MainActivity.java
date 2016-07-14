@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -50,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
         */
         switch (item.getItemId()) {
             case R.id.action_nuevo:
-                Log.i("ActionBar", "Nuevo!");
+                Toast.makeText(MainActivity.this, "\"Nuevo!\"", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_buscar:
-                Log.i("ActionBar", "Buscar!");;
+                Toast.makeText(MainActivity.this, "\"Buscar!\"", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_settings:
-                Log.i("ActionBar", "Settings!");;
+                Toast.makeText(MainActivity.this, "\"Settings!\"", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
