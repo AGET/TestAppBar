@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,6 +65,33 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         tbCard.inflateMenu(R.menu.menu_tarjeta);
+
+
+        //Spinner
+        //Appbar page filter
+        Spinner cmbToolbar = (Spinner) findViewById(R.id.CmbToolbar);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                getSupportActionBar().getThemedContext(),
+                R.layout.appbar_filter_title,
+                new String[]{"Opción 1 ", "Opción 2 ", "Opción 3 "});
+
+        adapter.setDropDownViewResource(R.layout.appbar_filter_list);
+
+        cmbToolbar.setAdapter(adapter);
+
+        cmbToolbar.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                //... Acciones al seleccionar una opción de la lista
+                Toast.makeText(MainActivity.this, "Seleccionada opción" + i, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //... Acciones al no existir ningún elemento seleccionado
+            }
+        });
     }
 
 
