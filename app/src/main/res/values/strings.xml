@@ -6,4 +6,8 @@
     <string name="action_nuevo">Nuevo</string>
     <string name="prueba">Prueba</string>
     <string name="checkbox">Checkbox</string>
+    <string name="Título">Titulo largo appbar</string>
+    <string name="Subtítulo">Subtítulo appbar </string>
+    <string name="action_1">Acción 1</string>
+    <string name="action_2">Acción 2</string>
 </resources>

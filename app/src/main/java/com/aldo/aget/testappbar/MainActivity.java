@@ -18,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //Toolbar Actividad (App bar)
+        Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -29,7 +31,39 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+        //Toolbar Tarjeta
+        Toolbar tbCard = (Toolbar) findViewById(R.id.TbCard);
+        tbCard.setTitle("Toolbar card");
+
+        tbCard.setOnMenuItemClickListener(
+                new Toolbar.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+
+                        switch (item.getItemId()) {
+                            case R.id.action_1:
+                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta 1\"", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.action_2:
+                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta 2\"", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.action_nuevo:
+                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta Nuevo!\"", Toast.LENGTH_SHORT).show();
+                                return true;
+                            case R.id.action_buscar:
+                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta Buscar!\"", Toast.LENGTH_SHORT).show();
+                                return true;
+                        }
+
+                        return true;
+                    }
+                });
+
+        tbCard.inflateMenu(R.menu.menu_tarjeta);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
