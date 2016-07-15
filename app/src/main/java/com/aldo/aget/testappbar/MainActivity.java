@@ -3,6 +3,8 @@ package com.aldo.aget.testappbar;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -36,36 +38,36 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //Toolbar Tarjeta
-        Toolbar tbCard = (Toolbar) findViewById(R.id.TbCard);
-        tbCard.setTitle("Toolbar card");
-
-        tbCard.setOnMenuItemClickListener(
-                new Toolbar.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-
-                        switch (item.getItemId()) {
-                            case R.id.action_1:
-                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta 1\"", Toast.LENGTH_SHORT).show();
-                                break;
-                            case R.id.action_2:
-                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta 2\"", Toast.LENGTH_SHORT).show();
-                                break;
-                            case R.id.action_nuevo:
-                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta Nuevo!\"", Toast.LENGTH_SHORT).show();
-                                return true;
-                            case R.id.action_buscar:
-                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta Buscar!\"", Toast.LENGTH_SHORT).show();
-                                return true;
-                        }
-
-                        return true;
-                    }
-                });
-
-        tbCard.inflateMenu(R.menu.menu_tarjeta);
-
+//        //Toolbar Tarjeta
+//        Toolbar tbCard = (Toolbar) findViewById(R.id.TbCard);
+//        tbCard.setTitle("Toolbar card");
+//
+//        tbCard.setOnMenuItemClickListener(
+//                new Toolbar.OnMenuItemClickListener() {
+//                    @Override
+//                    public boolean onMenuItemClick(MenuItem item) {
+//
+//                        switch (item.getItemId()) {
+//                            case R.id.action_1:
+//                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta 1\"", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case R.id.action_2:
+//                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta 2\"", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case R.id.action_nuevo:
+//                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta Nuevo!\"", Toast.LENGTH_SHORT).show();
+//                                return true;
+//                            case R.id.action_buscar:
+//                                Toast.makeText(MainActivity.this, "\"Acción Tarjeta Buscar!\"", Toast.LENGTH_SHORT).show();
+//                                return true;
+//                        }
+//
+//                        return true;
+//                    }
+//                });
+//
+//        tbCard.inflateMenu(R.menu.menu_tarjeta);
+//
 
         //Spinner
         //Appbar page filter
@@ -92,6 +94,17 @@ public class MainActivity extends AppCompatActivity {
                 //... Acciones al no existir ningún elemento seleccionado
             }
         });
+
+        //Tabs + ViewPager
+
+        //Establecer el PageAdapter del componente ViewPager
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setAdapter(new MiFragmentPagerAdapter(
+                getSupportFragmentManager()));
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.appbartabs);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
 

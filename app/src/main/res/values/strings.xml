@@ -10,4 +10,7 @@
     <string name="Subtítulo">Subtítulo appbar </string>
     <string name="action_1">Acción 1</string>
     <string name="action_2">Acción 2</string>
+
+    <string name="fragment1">Fragment 1</string>
+    <string name="fragment2">Fragment 2</string>
 </resources>
