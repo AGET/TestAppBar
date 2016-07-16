@@ -2,6 +2,7 @@
 Esta es una simple prueba de la appbar de android con view pager y fragmentos
 
 ![Sample Screenshots][1]
+
 <img src="screenshot/release/img-rl2_2.png" width="220" height="450">
 
 
